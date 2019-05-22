@@ -1,7 +1,30 @@
-<h1>Mister Cocktail</h1>
-<% @cocktails.each do |cocktail| %>
-  <%= link_to cocktail.name, cocktail_path(cocktail) %>
-  <br>
-<% end %>
-<p><%= link_to "➕Add new cocktail", new_cocktail_path %></p>
-<%= cl_image_tag("sample", width: 400, height: 300, crop: :fill) %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/ddzudaqmd/image/upload/v1558535048/Nantucket-Beach-Club-Cocktail-landscape-decorated_nzucrh.jpg);">
+  <div class="container">
+    <h1>Mister Cocktail</h1>
+    <p>Change your life and learn to make good <strong>Cocktails</strong>.</p>
+    <a class="btn btn-warning" href="#">Apply now</a>
+  </div>
+</div>
+
+<div class="container">
+  <div class="flex">
+  <% @cocktails.each do |cocktail| %>
+    <%= link_to cocktail.name, cocktail_path(cocktail) %>
+
+     <%= cl_image_tag cocktail.photo, height: 300, width: 400, crop: :fill %>
+
+    <div class="card"
+      style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path cocktail.photo, height: 300, width: 400, crop: :fill %>')">
+    </div>
+
+  <% end %>
+  <p><%= link_to "➕Add new cocktail", new_cocktail_path %></p>
+  </div>
+</div>
+
+
+<!-- <div class="cards">
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+    Breakfast
+  </div>
+</div> -->
